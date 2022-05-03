@@ -97,7 +97,7 @@ export default class TodosList {
     }
   }
 
-  removeItemFromLocalStorage() {
+  isTrueOrFalse() {
     for (let i = 0; i < this.List.length; i += 1) {
       document.getElementById(`check${i}`).addEventListener('change', () => {
         if (this.List[i].completed === false) {
@@ -119,18 +119,18 @@ export default class TodosList {
     }
   }
 
-  clearList() {
-    document.getElementById('clearA').addEventListener('click', () => {
+  clearCompleted() {
+    document.getElementById('clearAllButton').addEventListener('click', () => {
+      const filtered = this.List.filter((items) => items.completed === false);
+      const stringData = JSON.stringify(filtered);
       for (let i = 0; i < this.List.length; i += 1) {
         const listedItem = document.getElementById(`item${i}`);
-        const filtered = this.List.filter((items) => items.completed === false);
-        const stringData = JSON.stringify(filtered);
-        localStorage.setItem('todoList', stringData);
         listedItem.remove();
-        this.UpdateList();
-        this.updateIndex();
-        window.location.reload();
       }
+      localStorage.setItem('todoList', stringData);
+      this.UpdateList();
+      this.updateIndex();
+      this.listItems();
     });
   }
 }

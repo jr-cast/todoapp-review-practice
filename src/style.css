@@ -107,6 +107,6 @@ input:placeholder-shown {
   text-decoration: line-through;
 }
 
-#clearA:hover {
+#clearAllButton:hover {
   font-weight: bolder;
 }

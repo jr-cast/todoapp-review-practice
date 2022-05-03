@@ -33,11 +33,8 @@ todos.hideRemoveIcon();
 // Remove items when clicking X icon
 todos.removeItem();
 
-// update task
-todos.updateTask();
-
 // remove items from localstorage and update index number
-todos.removeItemFromLocalStorage();
+todos.isTrueOrFalse();
 
 // clear checked items
-todos.clearList();
+todos.clearCompleted();
